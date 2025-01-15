@@ -36,6 +36,7 @@ public class PersonController {
     @PostMapping("/find-in-polygon")
     public ResponseEntity<List<Person>> findPeopleInPolygon(@RequestBody List<List<Double>> polygonCoordinates) {
         List<Person> people = personService.findPeopleInPolygon(polygonCoordinates);
+        if (people.isEmpty()) return ResponseEntity.noContent().build();
         return ResponseEntity.ok(people);
     }
 }
