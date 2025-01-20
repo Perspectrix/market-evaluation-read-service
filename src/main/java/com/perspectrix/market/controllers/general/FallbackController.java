@@ -19,10 +19,10 @@ public class FallbackController {
      * @return ResponseEntity with 404 status and error message
      * @see HttpStatus#NOT_FOUND
      */
-    @RequestMapping("/**")
+    @RequestMapping("/api/report/**")
     public ResponseEntity<String> handleFallback() {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body("Endpoint not found");
+                .body("Endpoint not found - Read service");
     }
 }
